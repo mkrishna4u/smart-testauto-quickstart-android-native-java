@@ -1,0 +1,1 @@
+# smart-testauto-quickstart-android-native-java
