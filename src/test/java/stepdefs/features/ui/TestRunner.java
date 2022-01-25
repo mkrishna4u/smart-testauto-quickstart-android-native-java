@@ -1,4 +1,4 @@
-package stepdefs.features.ui.home;
+package stepdefs.features.ui;
 
 import org.testng.annotations.Listeners;
 
@@ -18,6 +18,6 @@ import io.cucumber.testng.CucumberOptions;
 	glue = {"stepdefs.features.ui.home" }
 	)
 @Listeners(TestNGExecutionListener.class)
-public class CalculatorTest extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
 	
 }
