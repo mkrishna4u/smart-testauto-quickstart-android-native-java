@@ -16,19 +16,21 @@
  # 
  # Author - Ajita Krishna
 ################################################################################
-
-PROFILE_NAME = StandardUserProfile
+profileName: StandardUserProfile
 
 # Application User Credentials
-APP_LOGIN_USER_ID = <not-applicable>
-APP_LOGIN_USER_PASSWORD = <not-applicable>
+appLoginUserId: "-"
+appLoginUserPassword: "-"
 
 # User account information
-USER_ACCOUNT_TYPE = StandardUser
-USER_ACCOUNT_TYPE_CODE = SU
+userAccountType: StandardUser
+userAccountTypeCode: SU
 
 # Comma separated user roles
-USER_ROLES = Standard
+userRoles: [Standard] 
 
-# Additional properties (Add key prefix as '_')
-
+# Additional properties (Define under additionalProps as child property)
+additionalProps:
+  firstName: Ajita
+  lastName: Krishna
+  

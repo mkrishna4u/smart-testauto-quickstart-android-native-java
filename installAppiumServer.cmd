@@ -1,2 +1,6 @@
 call set-env.cmd
-npm install -g appium
+rmdir /S /Q appium-server
+mkdir appium-server
+cd appium-server
+npm install appium
+cd ..

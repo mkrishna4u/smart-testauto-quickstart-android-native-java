@@ -1,14 +1,9 @@
 package stepdefs.features.ui.home;
 
 import org.testng.Assert;
-import org.uitnet.testing.smartfwk.ui.core.AbstractAppConnector;
-import org.uitnet.testing.smartfwk.ui.core.appdriver.SmartAppDriver;
-import org.uitnet.testing.smartfwk.ui.core.cache.DefaultSmartCache;
-import org.uitnet.testing.smartfwk.ui.core.cache.SmartCache;
-import org.uitnet.testing.smartfwk.ui.core.cache.SmartCacheSubscriber;
+import org.uitnet.testing.smartfwk.ui.core.SmartCucumberUiScenarioContext;
 import org.uitnet.testing.smartfwk.ui.core.objects.validator.mechanisms.TextMatchMechanism;
 
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import page_objects.CalculatorPO;
@@ -19,31 +14,13 @@ import page_objects.CalculatorPO;
  *
  */
 public class CalculatorStepDefs {
-	// ------------- Common Code for step definition - START -------
-	private AbstractAppConnector appConnector;
-	private Scenario runningScenario;
-	private SmartAppDriver appDriver;
-	private SmartCache globalCache;
+	private SmartCucumberUiScenarioContext scenarioContext;
 
 	/**
 	 * Constructor
 	 */
-	public CalculatorStepDefs() {
-		globalCache = DefaultSmartCache.getInstance();
-
-		appConnector = globalCache.getAppConnector();
-		runningScenario = globalCache.getRunningScenario();
-		appDriver = globalCache.getAppDriver();
-
-		// Subscribe to the the cache to get the latest data
-		globalCache.subscribe(new SmartCacheSubscriber() {
-			@Override
-			protected void onMessage(SmartCache message) {
-				appConnector = message.getAppConnector();
-				runningScenario = message.getRunningScenario();
-				appDriver = message.getAppDriver();
-			}
-		});
+	public CalculatorStepDefs(SmartCucumberUiScenarioContext scenarioContext) {
+		this.scenarioContext = scenarioContext;
 	}
 
 	// ------------- Common Code for step definition - END -------
@@ -64,47 +41,47 @@ public class CalculatorStepDefs {
 			clickDigitButton(num2Str.charAt(i));
 		}
 
-		CalculatorPO.Button_Equals.getValidator(appDriver, null).click(1);
+		CalculatorPO.Button_Equals.getValidator(scenarioContext, null).click(1);
 	}
 
 	@Then("The {int} is displayed on result textbox.")
 	public void the_is_displayed_on_result_textbox(Integer result) {
-		CalculatorPO.Textbox_CalculatorResults.getValidator(appDriver, null).validateValue("" + result,
+		CalculatorPO.Textbox_CalculatorResults.getValidator(scenarioContext, null).validateValue("" + result,
 				TextMatchMechanism.containsExpectedValue, 1);
-		CalculatorPO.Button_Clear.getValidator(appDriver, null).click(1);
+		CalculatorPO.Button_Clear.getValidator(scenarioContext, null).click(1);
 	}
 
 	private void clickDigitButton(char digit) {
 		switch (digit) {
 		case '0':
-			CalculatorPO.Button_0.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_0.getValidator(scenarioContext, null).click(1);
 			break;
 		case '1':
-			CalculatorPO.Button_1.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_1.getValidator(scenarioContext, null).click(1);
 			break;
 		case '2':
-			CalculatorPO.Button_2.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_2.getValidator(scenarioContext, null).click(1);
 			break;
 		case '3':
-			CalculatorPO.Button_3.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_3.getValidator(scenarioContext, null).click(1);
 			break;
 		case '4':
-			CalculatorPO.Button_4.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_4.getValidator(scenarioContext, null).click(1);
 			break;
 		case '5':
-			CalculatorPO.Button_5.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_5.getValidator(scenarioContext, null).click(1);
 			break;
 		case '6':
-			CalculatorPO.Button_6.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_6.getValidator(scenarioContext, null).click(1);
 			break;
 		case '7':
-			CalculatorPO.Button_7.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_7.getValidator(scenarioContext, null).click(1);
 			break;
 		case '8':
-			CalculatorPO.Button_8.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_8.getValidator(scenarioContext, null).click(1);
 			break;
 		case '9':
-			CalculatorPO.Button_9.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_9.getValidator(scenarioContext, null).click(1);
 			break;
 		default:
 			Assert.fail("Invalid numeric digit '" + digit + "'.");
@@ -114,16 +91,16 @@ public class CalculatorStepDefs {
 	private void clickOperatorButton(String operator) {
 		switch (operator) {
 		case "+":
-			CalculatorPO.Button_Plus.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_Plus.getValidator(scenarioContext, null).click(1);
 			break;
 		case "-":
-			CalculatorPO.Button_Minus.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_Minus.getValidator(scenarioContext, null).click(1);
 			break;
 		case "*":
-			CalculatorPO.Button_Multiply.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_Multiply.getValidator(scenarioContext, null).click(1);
 			break;
 		case "/":
-			CalculatorPO.Button_Divide.getValidator(appDriver, null).click(1);
+			CalculatorPO.Button_Divide.getValidator(scenarioContext, null).click(1);
 			break;
 		default:
 			Assert.fail("Operator '" + operator + "' is not supported.");
