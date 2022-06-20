@@ -1,4 +1,4 @@
-# Quickstart Project to setup "Android Native" app Software Testing Automation Environment (Based on Smart Testing Automation Framework, Version 2.x.x)
+# Quickstart Project to setup "Android Native" app Software Testing Automation Environment (Based on Smart Testing Automation Framework, Version 5.x.x)
 
 This is a maven based quickstart project to start working on sofwtare testing automation. If you have 30 minutes (Based on your network speed) you can setup software testing environment and start writing the software testing automation related test cases. This quickstart project is based on **smart-testauto-framework** library present on the following path: 
 
