@@ -12,7 +12,7 @@
 
 	<properties>
 		<parallel.threads>1</parallel.threads>
-		<smart-testauto-framework.version>5.1.0</smart-testauto-framework.version>
+		<smart-testauto-framework.version>5.1.1</smart-testauto-framework.version>
 		<cucumber.version>7.5.0</cucumber.version>
 		<selenium.version>4.3.0</selenium.version>
 		<sikulix.version>2.0.5</sikulix.version>
@@ -152,7 +152,7 @@
 							<followSymlinks>false</followSymlinks>
 						</fileset>
 						<fileset>
-							<directory>${project.basedir}/terget</directory>
+							<directory>${project.basedir}/target</directory>
 							<followSymlinks>false</followSymlinks>
 						</fileset>
 					</filesets>
